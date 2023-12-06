@@ -2,7 +2,7 @@
 '''
     This module defines the BaseModel class
 '''
-import uuid
+from  uuid import uuid4
 from datetime import datetime
 import models
 
