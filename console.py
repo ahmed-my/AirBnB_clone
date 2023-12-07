@@ -22,7 +22,7 @@ def parse(arg):
         else:
             symbol = split(arg[:curly_braces.span()[0]])
             result = [i.strip(",") for i in symbol]
-            result.append(curly_braces.gruop())
+            result.append(curly_braces.group())
             return result
     else:
         symbol = split(arg[:brackets.span()[0]])
@@ -57,14 +57,14 @@ class HBNBCommand(cmd.Cmd):
             "destroy": self.do_destroy,
             "all": self.do_all,
             "update": self.do_update,
-            "count": seld.do_count
+            "count": self.do_count
         }
         match = re.search(r"\.", arg)
         if match is not None:
-            arg_march = [arg[:match.span()[0]], arg[match.span()[1]:]]
-            match = re.search(r"\((.*?)", arg_march[1])
-            if march is not None:
-                command = [arg_match[1][:match.span()[0]], match.gruop()[1:-1]]
+            arg_match = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", arg_match[1])
+            if match is not None:
+                command = [arg_match[1][:match.span()[0]], match.group()[1:-1]]
                 if command[0] in arg_dict.keys():
                     call = "{} {}".format(arg_match[0], command[1])
                     return arg_dict[command[0]](call)
@@ -72,11 +72,11 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, arg):
-        """ Represent the EOF to exit the interpreter program"""
+        """EOF signal to exit the program."""
         print("")
         return True
 
