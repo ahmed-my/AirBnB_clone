@@ -160,7 +160,7 @@ class TestHBNBCommand_create(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
             self.assertLess(0, len(output.getvalue().strip()))
-            
+
             testKey = "BaseModel.{}".format(output.getvalue().strip())
             self.assertIn(testKey, storage.all().keys())
         with patch("sys.stdout", new=StringIO()) as output:
